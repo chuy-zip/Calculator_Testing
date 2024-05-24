@@ -9,7 +9,8 @@ export default defineConfig({
       '@assets':'/src/assets',
       '@components':'/src/components',
       '@styles':'/src/styles',
-      '@views':'/src/views'
+      '@views':'/src/views',
+      '@scripts':'/src/Scripts'
     }
   },
 })
