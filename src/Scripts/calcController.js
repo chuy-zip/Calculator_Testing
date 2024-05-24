@@ -18,6 +18,12 @@ export function plusMinus(num) {
 }
 
 export function appendNumber(num1, num2) {
+
+    console.log(num1, num2)
+    if(Number(num1) == 0){
+        return num2
+    }
+    
     return num1 + num2;
 }
 

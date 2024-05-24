@@ -37,15 +37,15 @@ function CalcButton({content, num1, num2, result}){
         },
         '7': { 
           class: 'numberButton', 
-          function: () => { console.log('7 button clicked'); } 
+          function: () => { result(appendNumber(num1, '7')); } 
         },
         '8': { 
           class: 'numberButton', 
-          function: () => { console.log('8 button clicked'); } 
+          function: () => { result(appendNumber(num1, '8')); } 
         },
         '9': { 
           class: 'numberButton', 
-          function: () => { console.log('9 button clicked'); } 
+          function: () => { result(appendNumber(num1, '9')); } 
         },
         'x': { 
           class: 'operationButton', 
@@ -53,15 +53,15 @@ function CalcButton({content, num1, num2, result}){
         },
         '4': { 
           class: 'numberButton', 
-          function: () => { console.log('4 button clicked'); } 
+          function: () => { result(appendNumber(num1, '4')); } 
         },
         '5': { 
           class: 'numberButton', 
-          function: () => { console.log('5 button clicked'); } 
+          function: () => { result(appendNumber(num1, '5')); } 
         },
         '6': { 
           class: 'numberButton', 
-          function: () => { console.log('6 button clicked'); } 
+          function: () => { result(appendNumber(num1, '6')); } 
         },
         '-': { 
           class: 'operationButton', 
@@ -69,15 +69,15 @@ function CalcButton({content, num1, num2, result}){
         },
         '1': { 
           class: 'numberButton', 
-          function: () => { console.log('1 button clicked'); } 
+          function: () => { result(appendNumber(num1, '1')); } 
         },
         '2': { 
           class: 'numberButton', 
-          function: () => { console.log('2 button clicked'); } 
+          function: () => { result(appendNumber(num1, '2')); } 
         },
         '3': { 
           class: 'numberButton', 
-          function: () => { console.log('3 button clicked'); } 
+          function: () => { result(appendNumber(num1, '3')); } 
         },
         '+': { 
           class: 'operationButton', 
@@ -85,11 +85,11 @@ function CalcButton({content, num1, num2, result}){
         },
         '0': { 
           class: 'numberButton', 
-          function: () => { console.log('0 button clicked'); } 
+          function: () => { result(appendNumber(num1, '0')); } 
         },
         '.': { 
           class: 'numberButton', 
-          function: () => { console.log('. button clicked'); } 
+          function: () => { result(appendNumber(num1, '.')); } 
         },
         '=': { 
           class: 'operationButton', 
@@ -100,7 +100,7 @@ function CalcButton({content, num1, num2, result}){
     return (
         <button 
             className= {buttonConfig[content].class}
-            onClick={buttonConfig[content].function}> {content} </button>
+            onClick={ buttonConfig[content].function }> {content} </button>
     )
 }
 
