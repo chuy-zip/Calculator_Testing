@@ -1,42 +1,59 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.calculatorContainer{
+  display: flex;
+  background-color: aquamarine;
+  height: 95vh;
+  width: 30%;
+  flex-direction: column;
+  justify-content: start;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.operationScreen{
+  font-size: 80px;
+  height: 20vh;
+  width: 100%;
+  background-color: #1c1c1c;
+  text-align: right;
+  box-sizing: border-box;
+  padding: 0 10px 0 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  margin: 0 auto;
+  height: 75vh;
+  background-color: beige;
 }
 
-.card {
-  padding: 2em;
+.numberButton{
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #c7c7c7;;
 }
 
-.read-the-docs {
-  color: #888;
+.operationButton{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f98410; 
+}
+
+.options{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #afb0b5;
 }
