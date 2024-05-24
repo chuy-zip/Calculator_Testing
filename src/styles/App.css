@@ -14,6 +14,24 @@
   justify-content: start;
 }
 
+@media (max-width: 1100px) {
+  .calculatorContainer {
+    width: 40%;
+  }
+}
+
+@media (max-width: 860px) {
+  .calculatorContainer {
+    width: 50%;
+  }
+}
+
+@media (max-width: 670px) {
+  .calculatorContainer {
+    width: 80%;
+  }
+}
+
 .operationScreen{
   font-size: 80px;
   height: 20vh;
@@ -36,24 +54,35 @@
   background-color: beige;
 }
 
-.numberButton{
-  color: white;
+.numberButton, .operationButton, .options {
+  color: #565656;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #c7c7c7;;
+  font-size: 30px;
+  transition: background-color 0.3s ease; /* Apply transition */
 }
 
-.operationButton{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f98410; 
+.numberButton {
+  background-color: #c7c7c7;
 }
 
-.options{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.numberButton:hover {
+  background-color: #a8a8a8; /* Darker shade on hover */
+}
+
+.operationButton {
+  background-color: #f98410;
+}
+
+.operationButton:hover {
+  background-color: #d3730e; /* Darker shade on hover */
+}
+
+.options {
   background-color: #afb0b5;
+}
+
+.options:hover {
+  background-color: #8f9095; /* Darker shade on hover */
 }
