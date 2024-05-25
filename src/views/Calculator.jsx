@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import CalcButton from "@components/CalcButton.jsx";
 import {
     lengthIsCorrect,
@@ -20,7 +20,6 @@ function Calculator() {
     const [firstNumber, setFirstNumber] = useState("0");
     const [operation, setOperation] = useState("");
     const [secondNumber, setSecondNumber] = useState("");
-    const [result, setResult] = useState("");
 
     const handleNumberClick = (number) => {
         if (operation === "" && lengthIsCorrect(firstNumber+".")) {
