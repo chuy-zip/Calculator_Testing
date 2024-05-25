@@ -13,4 +13,8 @@ export default defineConfig({
       '@scripts':'/src/Scripts'
     }
   },
+  test: {
+    environment: 'jsdom',
+    setupFiles: './setupTests.js'
+  }
 })
