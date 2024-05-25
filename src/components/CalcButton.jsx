@@ -2,10 +2,11 @@ import PropTypes from 'prop-types';
 
 CalcButton.propTypes = {
     content: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired
+    onClick: PropTypes.func.isRequired,
+    "dataTestid": PropTypes.string.isRequired,
 };
 
-function CalcButton({ content, onClick }) {
+function CalcButton({ content, onClick, dataTestid }) {
     const buttonConfig = {
         'C': {
             class: 'options'
@@ -72,7 +73,9 @@ function CalcButton({ content, onClick }) {
     return (
         <button
             className={buttonConfig[content]?.class || 'defaultButton'}
-            onClick={onClick}>{content}
+            onClick={onClick}
+            data-testid={dataTestid}>{content}
+            
         </button>
     );
 }

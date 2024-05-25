@@ -113,12 +113,8 @@ function Calculator() {
 
     return (
         <div className="calculatorContainer">
-            <div className="operationScreen">
-                {
-                    (secondNumber || operation) ? (result && !secondNumber) ?
-                        result :
-                        secondNumber :
-                        firstNumber}
+            <div className="operationScreen" data-testid="operation-screen">
+                {(secondNumber || operation) ? (result && !secondNumber) ? result : secondNumber : firstNumber}
             </div>
             <div className="keyboard">
                 {["C", "+/-", "DEL", "^", "7", "8", "9", "+", "4", "5", "6", "-", "1", "2", "3", "x", "=", "0", ".", "÷"].map(content => (
@@ -130,6 +126,7 @@ function Calculator() {
                                 ? handleOperationClick(content)
                                 : handleNumberClick(content)
                         }}
+                        dataTestid={`button-${content}`} // Add data-testid
                     />
                 ))}
             </div>
