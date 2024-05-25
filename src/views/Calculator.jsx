@@ -13,6 +13,7 @@ import {
     appendNumber,
     plusMinus
 } from '@scripts/calcController.js';
+import { isNumber } from "../Scripts/calcController";
 
 function Calculator() {
 
@@ -46,6 +47,13 @@ function Calculator() {
 
     const handleOperationClick = (op) => {
         if (op === "=") {
+
+            if(!(isNumber(firstNumber) && isNumber(secondNumber))){
+                alert("An invalid input was found")
+                resetCalculator()
+                return;
+            }
+
             if (firstNumber && secondNumber && operation) {
                 let res;
                 switch (operation) {
