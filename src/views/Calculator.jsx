@@ -81,6 +81,9 @@ function Calculator() {
                 case "÷":
                     res = divide(firstNumber, secondNumber);
                     break;
+                case "^":
+                    res = power(firstNumber, secondNumber);
+                    break;
                 default:
                     res = firstNumber;
             }
@@ -96,7 +99,7 @@ function Calculator() {
                 setFirstNumber("" + res);
                 setSecondNumber("");
                 setOperation("");
-                
+
             }
         }
     };
@@ -112,9 +115,9 @@ function Calculator() {
         <div className="calculatorContainer">
             <div className="operationScreen">
                 {
-                    (secondNumber || operation) ? ( result && !secondNumber) ?  
+                    (secondNumber || operation) ? (result && !secondNumber) ?
                         result :
-                        secondNumber:
+                        secondNumber :
                         firstNumber}
             </div>
             <div className="keyboard">
