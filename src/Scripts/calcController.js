@@ -26,7 +26,7 @@ export function appendNumber(num1, num2) {
 }
 
 export function isOperator(char) {
-    return ['+', '-', 'x', '÷'].includes(char);
+    return ['+', '-', 'x', '÷', '^'].includes(char);
 }
 
 export function add(num1, num2) {

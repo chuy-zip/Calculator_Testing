@@ -144,3 +144,45 @@ test("Calculator returns error when answer is too long (periodic division 22/7=)
     // Restore the original alert function
     alertMock.mockRestore();
 })
+
+{/* Test para mostrar el resultado luego de que se ingresa otra operacion*/}
+
+test("Result is shown dinamically after other operation is selected ( 22 - 7 -> 15 + ...)",() => {
+    render(<Calculator />)
+
+    fireEvent.click(screen.getByTestId('button-2'));
+    fireEvent.click(screen.getByTestId('button-2'));
+    fireEvent.click(screen.getByText('-'));
+    fireEvent.click(screen.getByTestId('button-7'));
+    fireEvent.click(screen.getByText('+'));
+    
+    const element = screen.getByText('15')
+    expect(element).toBeInTheDocument()
+})
+
+test("Calculator supports long calculations (15 - 10 x 2 ÷ 5 ^ 4 + 3 = 19)", () => {
+    render(<Calculator />)
+
+    fireEvent.click(screen.getByTestId('button-1'));
+    fireEvent.click(screen.getByTestId('button-5'));
+    fireEvent.click(screen.getByText('-'));
+
+    fireEvent.click(screen.getByTestId('button-1'));
+    fireEvent.click(screen.getByTestId('button-0'));
+    fireEvent.click(screen.getByText('x'));
+
+    fireEvent.click(screen.getByTestId('button-2'));
+    fireEvent.click(screen.getByText('÷'));
+
+    fireEvent.click(screen.getByTestId('button-5'));
+    fireEvent.click(screen.getByText('^'));
+    
+    fireEvent.click(screen.getByTestId('button-4'));
+    fireEvent.click(screen.getByText('+'));
+
+    fireEvent.click(screen.getByTestId('button-3'));
+    fireEvent.click(screen.getByText('='));
+    
+    const element = screen.getByText('19')
+    expect(element).toBeInTheDocument()
+})

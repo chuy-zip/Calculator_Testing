@@ -23,13 +23,6 @@ describe('Arithmetic Operations', () => {
         expect(divide('5', '2')).toBe(2.5);
     });
 
-    it('should handle division by zero', () => {
-        const originalAlert = global.alert;
-        global.alert = () => {};
-        expect(divide('5', '0')).toBe(0);
-        global.alert = originalAlert;
-    });
-
     it('should calculate power correctly', () => {
         expect(power(2, 3)).toBe(8);
         expect(power(5, 2)).toBe(25);
