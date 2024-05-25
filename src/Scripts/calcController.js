@@ -18,8 +18,6 @@ export function plusMinus(num) {
 }
 
 export function appendNumber(num1, num2) {
-
-    console.log(num1, num2)
     if(Number(num1) == 0){
         return num2
     }
@@ -49,4 +47,16 @@ export function divide(num1, num2) {
         return 0;
     }
     return Number(num1) / Number(num2);
+}
+
+export function power(num1, num2){
+    return Math.pow(num1, num2)
+}
+
+export function deleteLast(num){
+    return num.substring(0, num.length - 1)
+}
+
+export function usingFirstNumber(num1, operation){
+    return num1 === "0" || operation === "" ? true : false
 }

@@ -1,119 +1,81 @@
-import PropTypes from 'prop-types'
-import {
-    lengthIsCorrect,
-    isNegative,
-    isNumber,
-    plusMinus,
-    appendNumber,
-    isOperator,
-    add,
-    subtract,
-    multiply,
-    divide
-} from '@scripts/calcController.js';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 CalcButton.propTypes = {
     content: PropTypes.string.isRequired,
-    num1: PropTypes.string.isRequired,
-    num2: PropTypes.string.isRequired,
-}
+    onClick: PropTypes.func.isRequired
+};
 
-function CalcButton({ content, num1, num2, result }) {
-
+function CalcButton({ content, onClick }) {
     const buttonConfig = {
         'C': {
-            class: 'options',
-            function: () => { console.log('C button clicked'); }
+            class: 'options'
         },
         '+/-': {
-            class: 'options',
-            function: () => { console.log('+/- button clicked'); }
+            class: 'options'
         },
-        '%': {
-            class: 'options',
-            function: () => { console.log('% button clicked'); }
+        'DEL': {
+            class: 'options'
+        },
+        '^': {
+            class: 'operationButton'
         },
         '÷': {
-            class: 'operationButton',
-            function: () => { console.log('÷ button clicked'); }
-        },
-        '7': {
-            class: 'numberButton',
-            function: () => { result(appendNumber(num1, '7')); }
-        },
-        '8': {
-            class: 'numberButton',
-            function: () => { result(appendNumber(num1, '8')); }
-        },
-        '9': {
-            class: 'numberButton',
-            function: () => { result(appendNumber(num1, '9')); }
+            class: 'operationButton'
         },
         'x': {
-            class: 'operationButton',
-            function: () => { console.log('x button clicked'); }
-        },
-        '4': {
-            class: 'numberButton',
-            function: () => { result(appendNumber(num1, '4')); }
-        },
-        '5': {
-            class: 'numberButton',
-            function: () => { result(appendNumber(num1, '5')); }
-        },
-        '6': {
-            class: 'numberButton',
-            function: () => { result(appendNumber(num1, '6')); }
+            class: 'operationButton'
         },
         '-': {
-            class: 'operationButton',
-            function: () => { console.log('- button clicked'); }
-        },
-        '1': {
-            class: 'numberButton',
-            function: () => { result(appendNumber(num1, '1')); }
-        },
-        '2': {
-            class: 'numberButton',
-            function: () => { result(appendNumber(num1, '2')); }
-        },
-        '3': {
-            class: 'numberButton',
-            function: () => { result(appendNumber(num1, '3')); }
+            class: 'operationButton'
         },
         '+': {
-            class: 'operationButton',
-            function: () => { console.log('+ button clicked'); }
-        },
-        '0': {
-            class: 'numberButton',
-            function: () => { result(appendNumber(num1, '0')); }
-        },
-        '.': {
-            class: 'numberButton',
-            function: () => { result(appendNumber(num1, '.')); }
+            class: 'operationButton'
         },
         '=': {
-            class: 'operationButton',
-            function: () => { console.log('= button clicked'); }
+            class: 'operationButton'
         },
-
-        'DEL': {
-            class: 'options',
-            function: () => { console.log('DEL button clicked'); }
+        '0': {
+            class: 'numberButton'
         },
-
-        '^': {
-            class: 'operationButton',
-            function: () => { console.log('^ button clicked'); }
+        '1': {
+            class: 'numberButton'
         },
+        '2': {
+            class: 'numberButton'
+        },
+        '3': {
+            class: 'numberButton'
+        },
+        '4': {
+            class: 'numberButton'
+        },
+        '5': {
+            class: 'numberButton'
+        },
+        '6': {
+            class: 'numberButton'
+        },
+        '7': {
+            class: 'numberButton'
+        },
+        '8': {
+            class: 'numberButton'
+        },
+        '9': {
+            class: 'numberButton'
+        },
+        '.': {
+            class: 'numberButton'
+        }
     };
 
     return (
         <button
-            className={buttonConfig[content].class}
-            onClick={buttonConfig[content].function}> {content} </button>
-    )
+            className={buttonConfig[content]?.class || 'defaultButton'}
+            onClick={onClick}>{content}
+        </button>
+    );
 }
 
-export default CalcButton
+export default CalcButton;
