@@ -22,33 +22,22 @@ function Calculator() {
     const [secondNumber, setSecondNumber] = useState("");
     const [result, setResult] = useState("");
 
-    useEffect(() => {
-
-        if (!lengthIsCorrect(firstNumber)) {
-            setFirstNumber(deleteLast(firstNumber))
-            alert("Total length must be 9 or less. This includes decimal point")
-
-        } else if (!lengthIsCorrect(secondNumber)) {
-            setSecondNumber(deleteLast(secondNumber))
-            alert("Total length must be 9 or less. This includes decimal point")
-        }
-
-        console.log("no1", firstNumber, "op", operation, "no2", secondNumber)
-
-    }, [firstNumber, secondNumber])
-
     const handleNumberClick = (number) => {
-        if (operation === "") {
+        if (operation === "" && lengthIsCorrect(firstNumber+".")) {
             setFirstNumber((prev) => appendNumber(prev, number));
-        } else {
+            
+        } else if(operation !== "" && lengthIsCorrect(secondNumber+".")){
             setSecondNumber((prev) => appendNumber(prev, number));
+        }
+        else {
+            alert("Input is already at 9 characters")
         }
     };
 
     const handleOperationClick = (op) => {
         if (op === "=") {
 
-            if(!(isNumber(firstNumber) && isNumber(secondNumber))){
+            if (!(isNumber(firstNumber) && isNumber(secondNumber))) {
                 alert("An invalid input was found")
                 resetCalculator()
                 return;
@@ -69,19 +58,23 @@ function Calculator() {
                     case "÷":
                         res = divide(firstNumber, secondNumber);
                         break;
+                    case "^":
+                        res = power(firstNumber, secondNumber);
+                        break;
                     default:
                         res = firstNumber;
                 }
 
                 if (!lengthIsCorrect("" + res)) {
+                    resetCalculator()
                     alert("The result has more than 9 characters. Try other numbers.");
-                    resetCalculator()
-                } 
-                if (isNegative(res)){
-                    alert("An error has occured, The result was negative")
-                    resetCalculator()
+                    
                 }
-                else {
+                else if (isNegative(res)) {
+                    resetCalculator()
+                    alert("An error has occured, The result was negative")
+                    
+                } else {
                     resetCalculator();
                     setFirstNumber("" + res);
                     setSecondNumber("");
@@ -97,16 +90,12 @@ function Calculator() {
                 setSecondNumber((prev) => deleteLast(prev));
             }
         } else if (op === "+/-") {
-            if (operation === "") {
+            if ((operation === "" && lengthIsCorrect(firstNumber+".")) || (operation === "" && isNegative(firstNumber)) ) {
                 setFirstNumber((prev) => plusMinus(prev));
+            } else if(operation !== "" && lengthIsCorrect(firstNumber+".") ||  (operation === "" && isNegative(secondNumber)) ) {
+                setSecondNumber((prev) => plusMinus(prev)); 
             } else {
-                setSecondNumber((prev) => plusMinus(prev));
-            }
-        } else if (op === "^") {
-            if (operation === "") {
-                setFirstNumber((prev) => "" + power(Number(prev), 2));
-            } else {
-                setSecondNumber((prev) => "" + power(Number(prev), 2));
+                alert("Input is already at 9 characters")
             }
         } else {
             setOperation(op);
