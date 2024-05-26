@@ -1,6 +1,6 @@
 # React + Vite
 
-Online calculator
+Online calculator by Ricardo Chuy
 
 ## Commands
 * npm install
@@ -8,5 +8,13 @@ Online calculator
 * npm i jsdom
 * npm install --save-dev @testing-library/react
 * npm install --save-dev @testing-library/jest-dom
+* npm i coverage
+* npm i -D @vitest/coverage-v8
+
+I used both npm coverage: https://www.npmjs.com/package/coverage and vitest Coverage: https://vitest.dev/guide/coverage. The scripts defined on my package json are:
+
+* npm run test
+* npm run coverage
+* npm run viteCoverage
 
 

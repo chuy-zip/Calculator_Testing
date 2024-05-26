@@ -82,7 +82,6 @@ function Calculator() {
                     res = divide(firstNumber, secondNumber);
                     break;
                 case "^":
-                    console.log(firstNumber, secondNumber);
                     res = power(firstNumber, secondNumber);
                     break;
                 default:
