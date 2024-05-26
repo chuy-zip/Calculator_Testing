@@ -12,7 +12,7 @@ function OperationScreen({ num1, operation, num2, result}) {
 
     return (
         <div className="operationScreen" data-testid="operation-screen">
-            {(num2 || operation) ? (result && !num2) ? result : num2 : num1}
+            {(num2 || operation) ? (result && !num2 && (result === num1) ) ? result : num2 : num1}
         </div>
     )
 
