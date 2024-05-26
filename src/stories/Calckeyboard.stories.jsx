@@ -31,4 +31,12 @@ export const lessButtons = {
     }
 }
 
+export const LineIncomplete = {
+    args: {
+        numClick: fn(),
+        opClick: fn(),
+        keys: ["C", "+/-", "DEL", "^", "7", "8", "9", "+", "4", "5", "6"]
+    }
+}
+
 

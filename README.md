@@ -17,5 +17,6 @@ I used both npm coverage: https://www.npmjs.com/package/coverage and vitest Cove
 * npm run test
 * npm run coverage
 * npm run viteCoverage
+* npm run storybook
 
 
