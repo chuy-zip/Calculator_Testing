@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
+import '@styles/App.css' 
 
 CalcButton.propTypes = {
     content: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
-    "dataTestid": PropTypes.string.isRequired,
+    dataTestid: PropTypes.string.isRequired
 };
 
 function CalcButton({ content, onClick, dataTestid }) {

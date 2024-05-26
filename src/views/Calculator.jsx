@@ -1,5 +1,6 @@
 import { useState } from "react";
-import CalcButton from "@components/CalcButton.jsx";
+import CalculatorKeyboard from "@components/CalculatorKeyboard";
+import OperationScreen from  "@components/OperationScreen.jsx";
 import {
     lengthIsCorrect,
     isOperator,
@@ -21,6 +22,7 @@ function Calculator() {
     const [operation, setOperation] = useState("");
     const [secondNumber, setSecondNumber] = useState("");
     const [result, setResult] = useState("");
+    const keys = ["C", "+/-", "DEL", "^", "7", "8", "9", "+", "4", "5", "6", "-", "1", "2", "3", "x", "=", "0", ".", "÷"]
 
     const handleNumberClick = (number) => {
         if (operation === "" && lengthIsCorrect(firstNumber + ".")) {
@@ -113,23 +115,8 @@ function Calculator() {
 
     return (
         <div className="calculatorContainer">
-            <div className="operationScreen" data-testid="operation-screen">
-                {(secondNumber || operation) ? (result && !secondNumber) ? result : secondNumber : firstNumber}
-            </div>
-            <div className="keyboard">
-                {["C", "+/-", "DEL", "^", "7", "8", "9", "+", "4", "5", "6", "-", "1", "2", "3", "x", "=", "0", ".", "÷"].map(content => (
-                    <CalcButton
-                        key={content}
-                        content={content}
-                        onClick={() => {
-                            isOperator(content) || content === "=" || content === "C" || content === "DEL" || content === "+/-" || content === "^"
-                                ? handleOperationClick(content)
-                                : handleNumberClick(content)
-                        }}
-                        dataTestid={`button-${content}`} // Add data-testid
-                    />
-                ))}
-            </div>
+            <OperationScreen num1={firstNumber} operation={operation} num2={secondNumber} result={result}/>
+            <CalculatorKeyboard opClick={handleOperationClick} numClick={handleNumberClick} keys={keys}/>
         </div>
     );
 }
